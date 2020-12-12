@@ -94,3 +94,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Assets downloaded from course library
+Assets/Course Library/

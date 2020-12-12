@@ -26,6 +26,8 @@ public class MoverController : MonoBehaviour
 
         if(hasTarget)
         {
+            // Turn towards the target
+            transform.LookAt(currentTarget.transform);
             // Move towards the target
             transform.position = Vector3.MoveTowards(transform.position, currentTarget.transform.position, speed * Time.deltaTime);
         }
@@ -54,7 +56,14 @@ public class MoverController : MonoBehaviour
         {
             if (transform.childCount > 0)
             {
-                Destroy(transform.GetChild(0).gameObject);
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if(transform.GetChild(i).CompareTag("Resource"))
+                    {
+                        Destroy(transform.GetChild(i).gameObject);
+                    }
+                }
+                
             }
             hasTarget = false;
             currentTarget = null;
